@@ -1,24 +1,19 @@
 #!/bin/bash
-#=================================================
-# Description: DIY script
+#============================================================
+# https://github.com/P3TERX/Actions-OpenWrt
+# File name: diy-part2.sh
+# Description: OpenWrt DIY script part 2 (After Update feeds)
 # Lisence: MIT
 # Author: P3TERX
 # Blog: https://p3terx.com
-#=================================================
+#============================================================
+
 # Modify default IP
-#sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.1.253/g' package/base-files/files/bin/config_generate
 
-# Remove r8168 driver
-rm -rf package/ctcgfw/r8168
+# Modify default IP to DHCP
+# sed -i "38i\uci set network.lan.proto='dhcp'"  package/lean/default-settings/files/zzz-default-settings
+# sed -i '39i\uci commit network'  package/lean/default-settings/files/zzz-default-settings
 
-# Mod zzz-default-settings
-sed -i "/commit luci/i\uci set luci.main.mediaurlbase='/luci-static/argon'" package/lean/default-settings/files/zzz-default-settings
-
-# Add po2lmo
-git clone https://github.com/openwrt-dev/po2lmo.git
-pushd po2lmo
-make && sudo make install
-popd
-
-# Change default shell to zsh
-sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
+# Modify Default Theme
+sed -i '/uci commit luci/i\uci set luci.main.mediaurlbase=/luci-static/argon' package/lean/default-settings/files/zzz-default-settings
