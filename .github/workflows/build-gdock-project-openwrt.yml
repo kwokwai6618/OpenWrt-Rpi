@@ -26,7 +26,6 @@ env:
   REPO_URL: https://github.com/project-openwrt/openwrt
   REPO_BRANCH: master
   CONFIG_FILE: config/project/ipq40xx/gdock-project-openwrt.config
-  DEVICE: openwrt-ipq40xx-p2w_r619ac
   DIY_SH: scripts/project-openwrt.sh
   IPV6MOD_IN_FIRMWARE: true
   KMODS_IN_FIRMWARE: false
