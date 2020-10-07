@@ -17,14 +17,14 @@ on:
       - main
     paths:
       - 'config/project/ipq40xx/gdock-project-openwrt.config'
-  schedule:
-    - cron: 0 18 * * *
+#  schedule:
+#    - cron: 0 18 * * *
 #  watch:
 #    types: started
 
 env:
   REPO_URL: https://github.com/project-openwrt/openwrt
-  REPO_BRANCH: openwrt-18.06-k5.4
+  REPO_BRANCH: master
   CONFIG_FILE: config/project/ipq40xx/gdock-project-openwrt.config
   DEVICE: openwrt-ipq40xx-p2w_r619ac
   DIY_SH: scripts/project-openwrt.sh
